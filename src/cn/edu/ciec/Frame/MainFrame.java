@@ -1,39 +1,20 @@
 package cn.edu.ciec.Frame;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JTextPane;
-import java.awt.BorderLayout;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
-import javax.swing.JProgressBar;
-import java.awt.Choice;
 import java.awt.Color;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JInternalFrame;
-import javax.swing.JToolBar;
-import javax.swing.JSplitPane;
-import javax.swing.JScrollPane;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.JLayeredPane;
-import javax.swing.JDesktopPane;
-import javax.swing.JFormattedTextField;
-import javax.swing.JTextArea;
-import javax.swing.JSpinner;
-import javax.swing.JMenuItem;
-import java.awt.Canvas;
-import java.awt.List;
-import javax.swing.JEditorPane;
-import javax.swing.JFileChooser;
-
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.awt.event.ActionEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+import com.drew.imaging.ImageProcessingException;
+
+import cn.edu.ciec.photoExit.PhotoExitReader;
 
 public class MainFrame {
 
@@ -84,12 +65,27 @@ public class MainFrame {
 				jfc.setFileSelectionMode(JFileChooser.FILES_ONLY );
 				jfc.showDialog(new JLabel(), "选择");
 				File file = jfc.getSelectedFile();
+				
+				//读取照片名称及其路径信息
 				if(file.isDirectory()){
 					System.out.println("文件夹:"+file.getAbsolutePath());
 				}else if(file.isFile()){
 					System.out.println("文件:"+file.getAbsolutePath());
 				}
 				System.out.println(jfc.getSelectedFile().getName());
+				
+				//读取照片EXIT中GPS坐标信息
+				PhotoExitReader exit = new PhotoExitReader();
+				try {
+					exit.printImageTags(file);
+				} catch (ImageProcessingException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 			}
 		});
 		btnSubmit.setBounds(229, 347, 113, 27);

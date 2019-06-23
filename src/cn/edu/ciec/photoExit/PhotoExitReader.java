@@ -9,15 +9,15 @@ import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
 
 public class PhotoExitReader {
-	public static void main(String[] args) throws Exception, Exception {
-		File file = new File("F:\\1234.jpg");
-		printImageTags(file);
-	}
+//	public static void main(String[] args) throws Exception, Exception {
+//		File file = new File("F:\\1234.jpg");
+//		printImageTags(file);
+//	}
 
 	/**
 	 * 读取照片里面的信息
 	 */
-	private static void printImageTags(File file) throws ImageProcessingException, Exception {
+	public static void printImageTags(File file) throws ImageProcessingException, Exception {
 		Metadata metadata = ImageMetadataReader.readMetadata(file);
 		for (Directory directory : metadata.getDirectories()) {
 			for (Tag tag : directory.getTags()) {
@@ -30,11 +30,11 @@ public class PhotoExitReader {
 				} else if (tagName.equals("Date/Time Original")) {
 					System.out.println("拍摄时间: " + desc);
 				} else if (tagName.equals("GPS Latitude")) {
-					System.err.println("纬度 : " + desc);
-					// System.err.println("纬度(度分秒格式) : "+pointToLatlong(desc));
+//					System.err.println("纬度 : " + desc);
+					 System.err.println("纬度(度分秒格式) : "+pointToLatlong(desc));
 				} else if (tagName.equals("GPS Longitude")) {
-					System.err.println("经度: " + desc);
-					// System.err.println("经度(度分秒格式): "+pointToLatlong(desc));
+//					System.err.println("经度: " + desc);
+					 System.err.println("经度(度分秒格式): "+pointToLatlong(desc));
 				}
 			}
 		}
