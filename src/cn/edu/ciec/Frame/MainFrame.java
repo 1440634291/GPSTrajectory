@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 
 import com.drew.imaging.ImageProcessingException;
 
-import cn.edu.ciec.photoExit.PhotoExitReader;
+import cn.edu.ciec.dao.Photo;
 
 public class MainFrame {
 
@@ -66,18 +66,15 @@ public class MainFrame {
 				jfc.showDialog(new JLabel(), "选择");
 				File file = jfc.getSelectedFile();
 				
-				//读取照片名称及其路径信息
-				if(file.isDirectory()){
-					System.out.println("文件夹:"+file.getAbsolutePath());
-				}else if(file.isFile()){
-					System.out.println("文件:"+file.getAbsolutePath());
-				}
-				System.out.println(jfc.getSelectedFile().getName());
 				
-				//读取照片EXIT中GPS坐标信息
-				PhotoExitReader exit = new PhotoExitReader();
+				//读取照片信息
+				Photo photo = new Photo();
 				try {
-					exit.printImageTags(file);
+					photo.printImageTags(file);
+					if(!photo.IsExistPhoto())
+						photo.photoSave();
+					else
+						System.out.println("已存在该照片");
 				} catch (ImageProcessingException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
