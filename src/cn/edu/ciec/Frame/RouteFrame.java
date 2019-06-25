@@ -7,6 +7,9 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import cn.edu.ciec.dao.DrawTrajectory;
+
 import java.awt.Color;
 
 public class RouteFrame extends JFrame {
@@ -22,6 +25,9 @@ public class RouteFrame extends JFrame {
 				try {
 					RouteFrame frame = new RouteFrame();
 					frame.setVisible(true);
+//					DrawTrajectory draw = new DrawTrajectory();
+//					draw.draw(Graphics g);
+//					paint
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -34,7 +40,7 @@ public class RouteFrame extends JFrame {
 	 */
 	public RouteFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1000, 800);
+		setBounds(0, 0, 1920, 1080);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -43,7 +49,9 @@ public class RouteFrame extends JFrame {
 	}
 	
 	public void paint(Graphics g) {
-		g.drawLine(200, 200, 600, 400);
+		DrawTrajectory draw = new DrawTrajectory();
+		draw.draw(g);
+//		g.drawLine(100, 100, 100, 400);
 	}
 
 }

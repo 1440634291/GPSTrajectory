@@ -49,6 +49,7 @@ public class Photo {
 	
 	//读取照片里面的信息
 	public void printImageTags(File file) throws ImageProcessingException, Exception {
+
 		Metadata metadata = ImageMetadataReader.readMetadata(file);
 		System.out.println("图片名称: " + file.getName());
 		name = file.getName();
@@ -69,18 +70,20 @@ public class Photo {
 					x_degree = Double.parseDouble(desc.substring(0, desc.indexOf("°")).trim());
 					x_minute = Double.parseDouble(desc.substring(desc.indexOf("°") + 1, desc.indexOf("'")).trim());
 					x_second = Double.parseDouble(desc.substring(desc.indexOf("'") + 1, desc.indexOf("\"")).trim());
-					x = (int)((x_degree + x_minute/60 + x_second/3600) * 100000);
+					x = (int) ((x_degree + x_minute / 60 + x_second / 3600) * 100000);
 					System.out.println(x);
 				} else if (tagName.equals("GPS Longitude")) {
 					System.err.println("经度: " + desc);
 					y_degree = Double.parseDouble(desc.substring(0, desc.indexOf("°")).trim());
 					y_minute = Double.parseDouble(desc.substring(desc.indexOf("°") + 1, desc.indexOf("'")).trim());
 					y_second = Double.parseDouble(desc.substring(desc.indexOf("'") + 1, desc.indexOf("\"")).trim());
-					y = (int)((y_degree + y_minute/60 + y_second/3600) * 100000);
+					y = (int) ((y_degree + y_minute / 60 + y_second / 3600) * 100000);
 					System.out.println(y);
 				}
 			}
+
 		}
+
 	}
 	
 	
@@ -154,8 +157,4 @@ public class Photo {
 	}
 	
 	
-	//读取照片GPS经纬度信息且换算为坐标
-	public void GPSCaculator(String name) {
-		
-	}
 }
