@@ -103,6 +103,34 @@ public class Photo {
 		System.out.println(y_degree);
 		System.out.println(y_minute);
 		System.out.println(y_second);
+		System.out.println(name);
+		System.out.println(x_degree);
+		System.out.println(x_minute);
+		System.out.println(x_second);
+		System.out.println(y_degree);
+		System.out.println(y_minute);
+		System.out.println(y_second);
+		System.out.println(name);
+		System.out.println(x_degree);
+		System.out.println(x_minute);
+		System.out.println(x_second);
+		System.out.println(y_degree);
+		System.out.println(y_minute);
+		System.out.println(y_second);
+		System.out.println(name);
+		System.out.println(x_degree);
+		System.out.println(x_minute);
+		System.out.println(x_second);
+		System.out.println(y_degree);
+		System.out.println(y_minute);
+		System.out.println(y_second);
+		System.out.println(name);
+		System.out.println(x_degree);
+		System.out.println(x_minute);
+		System.out.println(x_second);
+		System.out.println(y_degree);
+		System.out.println(y_minute);
+		System.out.println(y_second);
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
