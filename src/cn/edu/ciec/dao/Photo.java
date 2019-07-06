@@ -111,6 +111,9 @@ public class Photo {
 			pstmt.setString(10, time);
 			System.out.println(sql);
 			pstmt.executeUpdate();
+			
+			
+			System.out.println(name);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
